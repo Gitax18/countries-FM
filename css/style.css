@@ -80,3 +80,54 @@
     font-size: 1.4rem;
     font-weight: 600;
 }
+
+.countries-container{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    /* text-align: center; */
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 2rem 6rem;
+}
+
+.card{
+    height: 32rem;
+    overflow: hidden;
+    width: 25rem;
+    background-color: var(--White);
+    box-shadow: 0px 1px 10px 1px rgb(0,0,0,0.1);
+
+    grid-template-rows: 1fr 1fr;
+    border-radius: .4rem;
+}
+
+.card img{
+    height: 100%;
+    width: 100%;
+}
+
+.details{
+    padding: 2rem;
+}
+
+.details h2{
+    font-size: 1.6rem;
+    margin: 0 0 1rem 0 ;
+    text-transform: capitalize;
+}
+
+.country-dets{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.country-dets li{
+    font-size: 1.2rem;
+}
+
+.det-key{
+    font-weight: 800;
+}

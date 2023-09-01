@@ -4,6 +4,7 @@ const body = document.querySelector('body');
 // ********* ICONS 
 const moonIcon = document.querySelector('#moon');
 const searchIcon = document.querySelector('.search-icon');
+const chevIcon = document.querySelector('#chev')
 
 // **** btns
 const themeBtn = document.getElementById('change-theme'); 
@@ -16,6 +17,10 @@ const mainContainer = document.querySelector('.container');
 // ****** COMPONENTS
 const searchBar = document.querySelector('.search-bar');
 const searchInput = document.querySelector('#search');
+const card = document.querySelector('.card');
+
+const regionFilterBox = document.querySelector('.regions-options');
+
 
 
 
@@ -45,17 +50,20 @@ function changeTheme(e){
         this.style.color = darkText;
         mainContainer.style.backgroundColor = darkBackground;
         body.style.backgroundColor = darkBackground;
+        body.style.color = darkText;
         
         searchBar.style.backgroundColor = darkElement;
         searchInput.style.backgroundColor = darkElement;
         searchInput.style.color = darkText;
+
+        card.style.backgroundColor = darkElement;
         
         changeRegion.style.backgroundColor = darkElement;
- 
+        
         this.value = 'dark'
     } 
     else {
-     
+        
         headerContainer.style.backgroundColor = darkText;
         body.style.color = lightText;
         moonIcon.setAttribute('name', 'moon-outline');
@@ -64,15 +72,22 @@ function changeTheme(e){
         
         mainContainer.style.backgroundColor = lightBackground;
         body.style.backgroundColor = lightBackground;
+        body.style.color = lightText;
         
         searchBar.style.backgroundColor = lightElement;
         searchInput.style.backgroundColor = lightElement;
         searchInput.style.color = lightText;
         
+        card.style.backgroundColor = lightElement;
+
         changeRegion.style.backgroundColor = lightElement;
 
         this.value = 'light'
     }
+}
+
+function showRegionFilterBox(){
+    chevIcon.name = "chevron-down-outline"
 }
 
 
@@ -80,6 +95,8 @@ function changeTheme(e){
 // ***************  LOGIC
 
 themeBtn.addEventListener('click', changeTheme);
+
+changeRegion.addEventListener('click', showRegionFilterBox)
 
 
 // requesting file data
