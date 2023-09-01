@@ -1,0 +1,94 @@
+
+/*
+****** Body Copy
+- Homepage Items: 14px (1.4rem) bcz by 1rem = 10opx
+- Detail Page: 16px   (1.6rem) bcz by 1rem = 10opx
+  */
+
+
+:root{
+    /* Dark theme*/
+    --Blue: hsl(209, 23%, 22%);      /*dark theme element*/
+    --Very-Dark-Blue: hsl(207, 26%, 17%); /*dark background*/
+
+    /* light theme */
+    --Dark-Blue: hsl(200, 15%, 8%);      /*light mode text*/
+    --Dark-Gray: hsl(0, 0%, 52%);       /*light mode input*/
+    --Very-Light-Gray: hsl(0, 0%, 98%); /*light background*/
+    --White: hsl(0, 0%, 100%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;  /* 10px*/
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.hidden{
+    display: none;
+}
+
+.grid{
+    display: grid;
+}
+
+.grid-temp-1{
+    grid-template-columns: 1fr;
+}
+
+.grid-temp-2{
+    grid-template-columns: repeat(1fr, 2);
+}
+
+.grid-temp-3{
+    grid-template-columns: repeat(1fr,3);
+}
+
+.grid-temp-4{
+    grid-template-columns: repeat(1fr,4);
+}
+
+
+body{
+    /* for theme */
+    color: var(--Very-Dark-Blue);
+    background-color: var(--Very-Light-Gray);
+}
+
+.container{
+    max-width: 120rem;
+    margin: auto;
+    height: 100vh;
+    background-color: var(--Very-Light-Gray);
+    padding-top:6rem ;
+    /* background-color: aliceblue; */
+}
+
+/* designing common header */
+.header{
+    background-color: var(--White);
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 15rem;
+    position: fixed;
+    width: 100vw;
+    z-index: 2;
+}
+
+/* designing theme btn */
+.change-theme{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    gap: .8rem;
+    font-weight: 600;
+}
+
