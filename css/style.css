@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
     height: 5rem;
     padding: 0 4rem;
 }
@@ -39,6 +40,13 @@
     outline: none;
 }
 
+.region-container{
+    position: absolute;
+    top: .5rem;
+    right: 20rem;
+    
+}
+
 .select-region{
     font-size: 1.4rem;
     font-weight: 600;
@@ -52,17 +60,25 @@
     padding: 1rem 2rem;
     gap: .8rem;
     border-radius: .4rem;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     cursor: pointer;
+    z-index: 2;
 }
 
+.select-text{
+    height: 100%;
+    /* padding: 1rem; */
+    display: block;
+}
 
 #regions-options{
     position: absolute;
     top: 4.5rem;
     left: 0;
     width: 16.5rem;
-    height: 16rem;
+    height: 18rem;
     padding: 1.6rem;
     border-radius: .4rem;
     background-color: var(--White);
@@ -72,13 +88,16 @@
     display: flex;
     flex-direction: column;
     gap: .8rem;
-    transform: translateY(-200px);
+    transform: translateY(-1000px);
     opacity: 0;
+    transition: transform 500ms ease-in, opacity 100ms ease;
+    z-index: 1;
 }
 
 #regions-options li{
     font-size: 1.4rem;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .countries-container{

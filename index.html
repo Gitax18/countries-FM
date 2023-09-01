@@ -46,19 +46,19 @@
                 <input type="text" name="search" id="search" placeholder="Search for a country..."> 
             </div>
             <!-- filter input -->
-            <article>
-                <div class="select-region">
-                    Filter by Region
-                    <ion-icon id="chev" name="chevron-up-outline"></ion-icon>
-
-                    <ul class="" id="regions-options">
-                        <li value="africa">Africa</li>
-                        <li value="america">America</li>
-                        <li value="asia">Asia</li>
-                        <li value="europe">Europe</li>
-                        <li value="oceania">Oceania</li>
-                    </ul>
+            <article class="region-container">
+                <div class="select-region" value='hide'>
+                    <span class="select-text">Filter by Region</span> 
+                    <ion-icon id="chev" class="select-text" name="chevron-up-outline"></ion-icon>
                 </div>
+                <ul id="regions-options">
+                    <li value="africa">Africa</li>
+                    <li value="america">America</li>
+                    <li value="asia">Asia</li>
+                    <li value="europe">Europe</li>
+                    <li value="oceania">Oceania</li>
+                    <li value="remove">Remove filter</li>
+                </ul>
             </article>
         </section>
 

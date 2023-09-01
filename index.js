@@ -19,7 +19,7 @@ const searchBar = document.querySelector('.search-bar');
 const searchInput = document.querySelector('#search');
 const card = document.querySelector('.card');
 
-const regionFilterBox = document.querySelector('.regions-options');
+const regionFilterBox = document.querySelector('#regions-options');
 
 
 
@@ -51,11 +51,13 @@ function changeTheme(e){
         mainContainer.style.backgroundColor = darkBackground;
         body.style.backgroundColor = darkBackground;
         body.style.color = darkText;
+
+        regionFilterBox.style.backgroundColor = darkElement;
         
         searchBar.style.backgroundColor = darkElement;
         searchInput.style.backgroundColor = darkElement;
         searchInput.style.color = darkText;
-
+        
         card.style.backgroundColor = darkElement;
         
         changeRegion.style.backgroundColor = darkElement;
@@ -69,6 +71,8 @@ function changeTheme(e){
         moonIcon.setAttribute('name', 'moon-outline');
         searchIcon.style.color = lightText;
         this.style.color = lightText;
+
+        regionFilterBox.style.backgroundColor = lightElement;
         
         mainContainer.style.backgroundColor = lightBackground;
         body.style.backgroundColor = lightBackground;
@@ -87,7 +91,22 @@ function changeTheme(e){
 }
 
 function showRegionFilterBox(){
-    chevIcon.name = "chevron-down-outline"
+    console.log(this)
+    if(this.value == 'hide'){
+        chevIcon.name = "chevron-down-outline"
+
+        regionFilterBox.style.transform = 'translateY(0px)';
+        regionFilterBox.style.opacity= '1';
+        
+        this.value = 'show'
+    }  else{
+        chevIcon.name = "chevron-up-outline"
+
+        regionFilterBox.style.transform = 'translateY(-1000px)';
+        regionFilterBox.style.opacity= '0';
+    
+        this.value = 'hide'
+    } 
 }
 
 
@@ -95,6 +114,7 @@ function showRegionFilterBox(){
 // ***************  LOGIC
 
 themeBtn.addEventListener('click', changeTheme);
+changeRegion.value = 'hide';
 
 changeRegion.addEventListener('click', showRegionFilterBox)
 
