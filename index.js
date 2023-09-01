@@ -13,6 +13,7 @@ const changeRegion = document.querySelector('.select-region');
 // **** CONTAINERS
 const headerContainer = document.querySelector('.header');
 const mainContainer = document.querySelector('.container');
+const countriesContainer = document.querySelector('.countries-container');
 
 // ****** COMPONENTS
 const searchBar = document.querySelector('.search-bar');
