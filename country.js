@@ -71,6 +71,11 @@ function changeTheme(){
     }
 }
 
+function searchFromAlpha3(code){
+    const count = data.find(obj => obj.alpha3Code === code);
+    return count.name
+}
+
 
 
 // ********* LOGIC
@@ -100,17 +105,18 @@ request.send();
 // retrieving file data
 request.addEventListener('load', ()=>{
     data = JSON.parse(request.responseText);
-
+    console.log(data)
     // updating DOM after loading data
     const countryData = data.find(obj => obj.numericCode === countryCode);
     countryName.textContent = countryData.name;
     flagContainer.src = countryData.flag;
 
     dataContainer.innerHTML = ""
+    const pop = new Intl.NumberFormat('en-US').format(countryData.population)
     const html = `
         <ul class="data-left">
             <li class="data"><span class="key">Native Name:</span> ${countryData.nativeName}</li>
-            <li class="data"><span class="key">Population:</span> ${countryData.population}</li>
+            <li class="data"><span class="key">Population:</span> ${pop}</li>
             <li class="data"><span class="key">Region:</span> ${countryData.region}</li>
             <li class="data"><span class="key">Sub Region:</span> ${countryData.subregion}</li>
             <li class="data"><span class="key">Capital:</span> ${countryData.capital}</li>
@@ -126,12 +132,12 @@ request.addEventListener('load', ()=>{
     borderContainer.innerHTML = '';
     if (countryData.borders != undefined){
         countryData.borders.forEach(bord => {
-            const html = `<li class="border-country">${bord}</li>`
+            const country = searchFromAlpha3(bord)
+            const html = `<li class="border-country">${country}</li>`
             borderContainer.insertAdjacentHTML('beforeend',html)
         })
         borderList = document.querySelectorAll('.border-country')
     } else document.querySelector('.borders-data').style.opacity = 0
-
 
 })
 
