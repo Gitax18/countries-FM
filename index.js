@@ -24,6 +24,7 @@ const searchInput = document.querySelector('#search');
 const regionFilterBox = document.querySelector('#regions-options');
 const regionText = document.querySelector('.select-text')
 
+let data
 
 
 
@@ -198,7 +199,7 @@ request.send();
 // retrieving file data
 request.addEventListener('load', ()=>{
     console.log('hello')
-    const data  = JSON.parse(request.responseText);
+    data  = JSON.parse(request.responseText);
     console.log(data)
     
     changeRegion.value = 'hide';
