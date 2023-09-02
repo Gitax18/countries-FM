@@ -105,12 +105,12 @@
     align-items: center;
     justify-content:space-around;
     flex-wrap: wrap;
-    gap: 3rem;
+    gap: 4rem 2rem;
     padding: 2rem 6rem;
 }
 
 .card{
-    height: 32rem;
+    height: 36rem;
     overflow: hidden;
     width: 25rem;
     background-color: var(--White);
@@ -121,7 +121,7 @@
 }
 
 .card img{
-    height: 16rem;
+    height: 18rem;
     width: 25rem;
     
 }
