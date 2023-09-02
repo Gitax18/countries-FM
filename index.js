@@ -197,6 +197,7 @@ request.send();
 
 // retrieving file data
 request.addEventListener('load', ()=>{
+    console.log('hello')
     const data  = JSON.parse(request.responseText);
     
     changeRegion.value = 'hide';
