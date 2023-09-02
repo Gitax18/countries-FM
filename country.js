@@ -18,7 +18,7 @@ const borderContainer = document.querySelector('.border-countries');
 // const borderList = document.querySelectorAll('.border-country')
 const countryName = document.querySelector('.country-name');
 let borderList;
-
+let data;
 
 // getting country data from local API
 const countryCode = localStorage.getItem('card-numcode');
@@ -71,6 +71,7 @@ function changeTheme(){
 
 function searchFromAlpha3(code){
     const count = data.find(obj => obj.alpha3Code === code);
+    console.log
     return count.name
 }
 
@@ -104,7 +105,7 @@ request.send();
 
 
 request.addEventListener('load', ()=>{
-    const data = JSON.parse(request.responseText);
+    data = JSON.parse(request.responseText);
 
     console.log(data)
     // updating DOM after loading data
@@ -131,9 +132,12 @@ request.addEventListener('load', ()=>{
 
     dataContainer.insertAdjacentHTML('afterbegin', html)
     borderContainer.innerHTML = '';
+    console.log(countryData.borders)
     if (countryData.borders != undefined){
         countryData.borders.forEach(bord => {
+            console.log(bord)
             const country = searchFromAlpha3(bord)
+            console.log(country)
             const html = `<li class="border-country">${country}</li>`
             borderContainer.insertAdjacentHTML('beforeend',html)
         })
