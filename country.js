@@ -35,12 +35,11 @@ function changeTheme(){
         moonIcon.setAttribute('name', 'moon');
         
         if(borderList != undefined){
-            
+            borderList.forEach(e =>{
+                e.style.backgroundColor = darkElement; 
+            })
         }
-        borderList.forEach(e =>{
-            e.style.backgroundColor = darkElement; 
-        })
-        
+
         backBtn.style.backgroundColor = darkElement;
         backBtn.style.color = darkText;
 
@@ -56,9 +55,11 @@ function changeTheme(){
         moonIcon.setAttribute('name', 'moon-outline');
         this.style.color = lightText;
 
-        borderList.forEach(e =>{
-            e.style.backgroundColor = lightElement; 
-        })        
+        if(borderList != undefined){
+            borderList.forEach(e =>{
+                e.style.backgroundColor = lightElement; 
+            })
+        }   
 
         backBtn.style.backgroundColor = lightElement;
         backBtn.style.color = lightText;
