@@ -201,7 +201,6 @@ request.addEventListener('load', ()=>{
     data  = JSON.parse(request.responseText);
 })
 
-
 changeRegion.value = 'hide';
 // event handling
 
@@ -252,5 +251,6 @@ regionFilterBox.addEventListener('click', (e)=>{
     changeRegion.value = 'hide'
 
 })
+
 
 
