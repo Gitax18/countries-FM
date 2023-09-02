@@ -18,7 +18,6 @@ const countriesContainer = document.querySelector('.countries-container');
 // ****** COMPONENTS
 const searchBar = document.querySelector('.search-bar');
 const searchInput = document.querySelector('#search');
-const card = document.querySelector('.card');
 
 const regionFilterBox = document.querySelector('#regions-options');
 
@@ -38,6 +37,8 @@ const lightText = 'var(--Dark-Blue)';
 
 // **************  FUNCTIONS
 function changeTheme(e){
+    const card = document.querySelectorAll('.card');
+
     e.preventDefault();
 
     if(this.value == 'light'){
@@ -59,7 +60,9 @@ function changeTheme(e){
         searchInput.style.backgroundColor = darkElement;
         searchInput.style.color = darkText;
         
-        card.style.backgroundColor = darkElement;
+        card.forEach(cd=>{
+            cd.style.backgroundColor = darkElement;
+        })
         
         changeRegion.style.backgroundColor = darkElement;
         
@@ -82,8 +85,10 @@ function changeTheme(e){
         searchBar.style.backgroundColor = lightElement;
         searchInput.style.backgroundColor = lightElement;
         searchInput.style.color = lightText;
-        
-        card.style.backgroundColor = lightElement;
+
+        card.forEach(cd=>{
+            cd.style.backgroundColor = lightElement;
+        })
 
         changeRegion.style.backgroundColor = lightElement;
 
@@ -111,6 +116,29 @@ function showRegionFilterBox(){
 }
 
 
+function renderAllCountries(countryArr){
+    countriesContainer.innerHTML = '';
+    countryArr.forEach(couObj => {
+        const html = `
+        <!-- card item -->
+            <div class="card grid" data-numcode="${couObj.numericCode}">
+                <img src="${couObj.flag}" alt="country flag" >
+                <div class="details">
+                    <h2 class="country-name">${couObj.name}</h2>
+                    <ul class="country-dets">
+                        <li><span class="det-key">Population</span>:<span class="det-value"> ${couObj.population}</span> </li>
+                        <li><span class="det-key">Region</span>: <span class="det-value">${couObj.region}</span> </li>
+                        <li><span class="det-key">Capital</span>: <span class="det-value">${couObj.capital}</span> </li>
+                    </ul>
+                </div>
+            </div>  
+        <!-- card item end -->
+        `
+
+        countriesContainer.insertAdjacentHTML('beforeend', html)
+    })
+}
+
 
 // ***************  LOGIC
 
@@ -127,9 +155,16 @@ request.send();
 
 // retrieving file data
 request.addEventListener('load', ()=>{
-    JSON.parse(request.responseText).forEach(country =>{
-        // console.log(country)
-    });
+    // JSON.parse(request.responseText).forEach(country =>{
+    //     console.log(country)
+    // });
+
+    // const [data, ...others] = JSON.parse(request.responseText);
+    const data  = JSON.parse(request.responseText);
+    // console.log(data);
+    // console.log(data.flag);
+    renderAllCountries(data)
+    
 })
 
 

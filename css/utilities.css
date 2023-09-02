@@ -92,3 +92,14 @@ body{
     font-weight: 600;
 }
 
+@media screen and (max-width: 120rem) {
+    .header{
+        padding-inline: 5rem;
+    }
+}
+
+@media screen and (max-width: 50rem) {
+    .header{
+        padding-inline: 2rem;
+    }
+}
