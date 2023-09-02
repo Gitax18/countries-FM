@@ -149,3 +149,21 @@
 .det-key{
     font-weight: 800;
 }
+
+@media screen and (max-width: 40rem) {
+    .search-container{
+        flex-direction: column;
+        display: block;
+        height: 12rem;
+        padding: 1.6rem;    
+    }
+
+    .search-bar{
+        max-width: 32rem;
+    }
+
+    .region-container{
+        top: 55%;
+        left: 1.6rem;
+    }
+}
