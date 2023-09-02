@@ -199,58 +199,58 @@ request.send();
 // retrieving file data
 request.addEventListener('load', ()=>{
     data  = JSON.parse(request.responseText);
-})
-
-changeRegion.value = 'hide';
-// event handling
-
-// rendering country on page load
-window.addEventListener('load',()=>{
-    renderAllCountries(data)
-})
-
-// changing theme
-themeBtn.addEventListener('click', changeTheme);
-
-
-// filter region animation
-changeRegion.addEventListener('click', showRegionFilterBox);
-
-// rendering country according to search
-searchInput.addEventListener('keydown',(e)=>{
-    if (e.key == 'Enter' && searchInput.value != ''){
-        renderSearchedCountry(searchInput.value)
-    }
-    if(searchInput.value == '') renderAllCountries(data)
-})
-
-// storing card details on click
-countriesContainer.addEventListener('click', (e)=>{
-    const clickedCard = e.target.closest('.card').dataset.numcode;
-    localStorage.setItem('card-numcode', clickedCard);
-    if(!e.target.classList.contains('countries-container')) location.href = 'country.html'
-    console.log(!e.target.classList.contains('countries-container'))
-})
-
-// rendering country according to region
-regionFilterBox.addEventListener('click', (e)=>{
-    if(e.target.value != undefined){
-        if(e.target.textContent != 'Remove filter'){
-            const region = e.target.textContent
-            regionText.textContent = region;
-            filterRegion(region)
-
-        } else{
-            regionText.textContent = 'Filter by Region';
-            renderAllCountries(data)
+    
+    changeRegion.value = 'hide';
+    // event handling
+    
+    // rendering country on page load
+    window.addEventListener('load',()=>{
+        renderAllCountries(data)
+    })
+    
+    // changing theme
+    themeBtn.addEventListener('click', changeTheme);
+    
+    
+    // filter region animation
+    changeRegion.addEventListener('click', showRegionFilterBox);
+    
+    // rendering country according to search
+    searchInput.addEventListener('keydown',(e)=>{
+        if (e.key == 'Enter' && searchInput.value != ''){
+            renderSearchedCountry(searchInput.value)
         }
-    }
-    chevIcon.name = "chevron-up-outline"
-    regionFilterBox.style.transform = 'translateY(-1000px)';
-    regionFilterBox.style.opacity= '0';    
-    changeRegion.value = 'hide'
+        if(searchInput.value == '') renderAllCountries(data)
+    })
+    
+    // storing card details on click
+    countriesContainer.addEventListener('click', (e)=>{
+        const clickedCard = e.target.closest('.card').dataset.numcode;
+        localStorage.setItem('card-numcode', clickedCard);
+        if(!e.target.classList.contains('countries-container')) location.href = 'country.html'
+        console.log(!e.target.classList.contains('countries-container'))
+    })
+    
+    // rendering country according to region
+    regionFilterBox.addEventListener('click', (e)=>{
+        if(e.target.value != undefined){
+            if(e.target.textContent != 'Remove filter'){
+                const region = e.target.textContent
+                regionText.textContent = region;
+                filterRegion(region)
+    
+            } else{
+                regionText.textContent = 'Filter by Region';
+                renderAllCountries(data)
+            }
+        }
+        chevIcon.name = "chevron-up-outline"
+        regionFilterBox.style.transform = 'translateY(-1000px)';
+        regionFilterBox.style.opacity= '0';    
+        changeRegion.value = 'hide'
+    
+    })
+    
 
-})
-
-
+})    
 
