@@ -199,6 +199,7 @@ request.send();
 request.addEventListener('load', ()=>{
     console.log('hello')
     const data  = JSON.parse(request.responseText);
+    console.log(data)
     
     changeRegion.value = 'hide';
     // event handling
