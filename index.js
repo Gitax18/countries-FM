@@ -161,6 +161,7 @@ function renderSearchedCountry(name){
     if(couObj == undefined){
         return
     }
+    const pop = new Intl.NumberFormat('en-US').format(couObj.population)
 
     const html = `
         <!-- card item -->
@@ -169,7 +170,7 @@ function renderSearchedCountry(name){
                 <div class="details">
                     <h2 class="country-name">${couObj.name}</h2>
                     <ul class="country-dets">
-                        <li><span class="det-key">Population</span>:<span class="det-value"> ${couObj.population}</span> </li>
+                        <li><span class="det-key">Population</span>:<span class="det-value"> ${pop}</span> </li>
                         <li><span class="det-key">Region</span>: <span class="det-value">${couObj.region}</span> </li>
                         <li><span class="det-key">Capital</span>: <span class="det-value">${couObj.capital}</span> </li>
                     </ul>
