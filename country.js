@@ -20,8 +20,6 @@ const countryName = document.querySelector('.country-name');
 let borderList;
 
 
-let data;
-
 // getting country data from local API
 const countryCode = localStorage.getItem('card-numcode');
 
@@ -104,7 +102,7 @@ request.send();
 
 // retrieving file data
 request.addEventListener('load', ()=>{
-    data = JSON.parse(request.responseText);
+    const data = JSON.parse(request.responseText);
     console.log(data)
     // updating DOM after loading data
     const countryData = data.find(obj => obj.numericCode === countryCode);
