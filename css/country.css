@@ -66,9 +66,17 @@
     gap: 3.2rem;
 }
 
+.border-title{
+    width: 10rem;
+}
+
 .border-countries{
     display: flex;
+    height: 100%;
     list-style: none;
+    align-items: center;
+    max-width: 35rem;
+    flex-wrap: wrap;
     gap: .8rem;
 }
 

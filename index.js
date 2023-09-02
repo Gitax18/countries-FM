@@ -1,3 +1,5 @@
+localStorage.clear()
+
 // const elements
 const body = document.querySelector('body');
 
@@ -223,6 +225,8 @@ searchInput.addEventListener('keydown',(e)=>{
 countriesContainer.addEventListener('click', (e)=>{
     const clickedCard = e.target.closest('.card').dataset.numcode;
     localStorage.setItem('card-numcode', clickedCard);
+    if(!e.target.classList.contains('countries-container')) location.href = 'country.html'
+    console.log(!e.target.classList.contains('countries-container'))
 })
 
 // rendering country according to region
@@ -244,3 +248,5 @@ regionFilterBox.addEventListener('click', (e)=>{
     changeRegion.value = 'hide'
 
 })
+
+
