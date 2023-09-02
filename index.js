@@ -26,7 +26,7 @@ let data;
 
 
 
-// styles 
+// styles of different themes
 const darkBackground = `var( --Very-Dark-Blue)`;
 const darkElement = `var(--Blue)`;
 const darkText = 'var(--White)';
@@ -37,6 +37,9 @@ const lightText = 'var(--Dark-Blue)';
 
 
 // **************  FUNCTIONS
+
+
+// function to change theme
 function changeTheme(e){
     const card = document.querySelectorAll('.card');
 
@@ -97,6 +100,7 @@ function changeTheme(e){
     }
 }
 
+// function to show filter region box
 function showRegionFilterBox(){
     console.log(this)
     if(this.value == 'hide'){
@@ -117,6 +121,7 @@ function showRegionFilterBox(){
 }
 
 
+// function to render all country takes array of objects of country as parameter
 function renderAllCountries(countryArr){
     countriesContainer.innerHTML = '';
     countryArr.forEach(couObj => {
@@ -140,6 +145,8 @@ function renderAllCountries(countryArr){
     })
 }
 
+
+// function to render search country
 function renderSearchedCountry(name){
     countriesContainer.innerHTML = '';
     const searchName = name[0].toUpperCase() + name.slice(1)
@@ -169,6 +176,7 @@ function renderSearchedCountry(name){
         countriesContainer.insertAdjacentHTML('beforeend', html)
 }
 
+// function to render country on basis of region 
 function filterRegion(region){
     const regData = data.filter(obj => obj.region == region);
     renderAllCountries(regData)
@@ -184,19 +192,26 @@ request.send();
 
 // retrieving file data
 request.addEventListener('load', ()=>{
-
     data  = JSON.parse(request.responseText);
 })
 
 
+changeRegion.value = 'hide';
 // event handling
+
+// rendering country on page load
 window.addEventListener('load',()=>{
     renderAllCountries(data)
 })
 
+// changing theme
 themeBtn.addEventListener('click', changeTheme);
-changeRegion.value = 'hide';
+
+
+// filter region animation
 changeRegion.addEventListener('click', showRegionFilterBox);
+
+// rendering country according to search
 searchInput.addEventListener('keydown',(e)=>{
     if (e.key == 'Enter' && searchInput.value != ''){
         renderSearchedCountry(searchInput.value)
@@ -210,8 +225,7 @@ countriesContainer.addEventListener('click', (e)=>{
     localStorage.setItem('card-numcode', clickedCard);
 })
 
-
-
+// rendering country according to region
 regionFilterBox.addEventListener('click', (e)=>{
     if(e.target.value != undefined){
         if(e.target.textContent != 'Remove filter'){
@@ -230,9 +244,3 @@ regionFilterBox.addEventListener('click', (e)=>{
     changeRegion.value = 'hide'
 
 })
-
-
-
-
-
-
