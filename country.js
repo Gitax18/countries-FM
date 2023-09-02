@@ -101,8 +101,11 @@ request.open('GET', './data.json');
 request.send();
 
 // retrieving file data
+
+
 request.addEventListener('load', ()=>{
     const data = JSON.parse(request.responseText);
+
     console.log(data)
     // updating DOM after loading data
     const countryData = data.find(obj => obj.numericCode === countryCode);
@@ -138,7 +141,6 @@ request.addEventListener('load', ()=>{
     } else document.querySelector('.borders-data').style.opacity = 0
 
 })
-
 
 
 
