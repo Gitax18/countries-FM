@@ -126,7 +126,10 @@ function showRegionFilterBox(){
 // function to render all country takes array of objects of country as parameter
 function renderAllCountries(countryArr){
     countriesContainer.innerHTML = '';
+
     countryArr.forEach(couObj => {
+        const pop = new Intl.NumberFormat('en-US').format(couObj.population)
+
         const html = `
         <!-- card item -->
             <div class="card grid" data-numcode="${couObj.numericCode}">
@@ -134,7 +137,7 @@ function renderAllCountries(countryArr){
                 <div class="details">
                     <h2 class="country-name">${couObj.name}</h2>
                     <ul class="country-dets">
-                        <li><span class="det-key">Population</span>:<span class="det-value"> ${couObj.population}</span> </li>
+                        <li><span class="det-key">Population</span>:<span class="det-value"> ${pop}</span> </li>
                         <li><span class="det-key">Region</span>: <span class="det-value">${couObj.region}</span> </li>
                         <li><span class="det-key">Capital</span>: <span class="det-value">${couObj.capital}</span> </li>
                     </ul>

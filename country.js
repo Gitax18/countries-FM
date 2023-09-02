@@ -123,7 +123,7 @@ request.addEventListener('load', ()=>{
         </ul>
         <ul class="data-right">
             <li class="data"><span class="key">Top Level Domain:</span> ${countryData.topLevelDomain}</li>
-            <li class="data"><span class="key">Currencies:</span> ${countryData.currencies[0].name}</li>
+            <li class="data"><span class="key">Currencies:</span> ${countryData.currencies[0].name} (${countryData.currencies[0].symbol})</li>
             <li class="data"><span class="key">Languages:</span> ${countryData.languages[0].name}</li>
         </ul>
     `
