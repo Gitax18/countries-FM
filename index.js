@@ -205,9 +205,9 @@ request.addEventListener('load', ()=>{
     // event handling
     
     // rendering country on page load
-    window.addEventListener('load',()=>{
+    // window.addEventListener('load',()=>{
         renderAllCountries(data)
-    })
+    // })
     
     // changing theme
     themeBtn.addEventListener('click', changeTheme);
