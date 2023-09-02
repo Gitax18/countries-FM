@@ -92,7 +92,7 @@ const lightText = 'var(--Dark-Blue)';
 // EVENT HANDLING
 themeBtn.addEventListener('click', changeTheme)
 backBtn.addEventListener('click', ()=>{
-    location.href = 'index.html'
+    location.href = '../'
 })
 
 
